@@ -91,14 +91,27 @@
         </div>
     </div>
     <script>
-        const obfuscatedNumber = 'bvv3v9d34v9vc088vv563vc6';
         function deobfuscateNumber(obfuscated) {
             return obfuscated.replace(/[^\d]/g, '');
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            const phrases = [
+                'Salve, sono interessato alle vostre mele. Potete dirmi di più?',
+                'Ciao, mi piacerebbe sapere di più sulle vostre mele.',
+                'Buongiorno, avete mele disponibili?',
+                'Salve, vorrei comprare delle mele. Avete informazioni?',
+                'Ciao, potete dirmi il prezzo delle vostre mele?',
+                'Salve, sono interessato al vostro succo di mela. Potete dirmi di più?',
+                'Ciao, mi piacerebbe sapere di più sul vostro succo di mela.',
+                'Buongiorno, avete succo di mela disponibile?',
+                'Salve, vorrei comprare del succo di mela. Avete informazioni?',
+                'Ciao, potete dirmi il prezzo del vostro succo di mela?'
+            ];
+	    const obfuscatedNumber = 'bvv3v9d34v9vc088vv563vc6';
             const phoneNumber = deobfuscateNumber(obfuscatedNumber);
-            const encodedMessage = encodeURIComponent('Salve, sono interessato alle vostre mele. Potete dirmi di più?');
+	    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+            const encodedMessage = encodeURIComponent(randomPhrase);
             document.getElementById('whatsapp-link').href += phoneNumber + '?text=' + encodedMessage;
         });
     </script>
